@@ -1,0 +1,29 @@
+$font-sans-serif: 'Open Sans', sans-serif;
+$font-serif: 'Merriweather', serif;
+
+
+p,
+ul,
+li,
+a {
+  font-family: $font-sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: $font-serif;
+}
+
+.section-header__large {
+  font-size: rem(40);
+  text-align: center;
+  display: block;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+
+  &:not(:last-child) {
+    margin-bottom: rem(20);
+  }
+}

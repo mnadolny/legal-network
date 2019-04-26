@@ -1,0 +1,138 @@
+$bp-values: (
+  xxl: 1440,
+  xl: 1280,
+  l: 1024,
+  m: 768,
+  s: 512,
+);
+
+/**
+ * Convert px to rem or em. Unitless values are assumed to be in px.
+ *
+ * @param {List}   $values Single value or list of values to convert
+ * @param {Bool}   $em Use `em` units, if true
+ * @param {Number} $base-value Root font size on which to base conversions
+ */
+@function _px-to-relative($px, $em, $base-size) {
+  @if ( 'em' == unit( $px ) or 'rem' == unit( $px ) ) {
+    @return $px;
+  }
+
+  @if ( 'px' == unit( $px ) ) {
+    $px: $px / 1px;
+  }
+
+  @if $em == true {
+    @return $px / $base-size * 1em;
+  }
+
+  @else {
+    @return $px / $base-size * 1rem;
+  }
+}
+
+/**
+ * Convert a list of px values (with or without the 'px' string) to either rem or em
+ *
+ * @param {List}   $values Single value or list of values to convert
+ * @param {Bool}   $em Use `em` units, if true
+ * @param {Number} $base-value Root font size on which to base conversions
+ */
+@function _px-to-relative-list($values, $em, $base-value) {
+  $num: length($values);
+  $relative-values: ();
+
+  @if $num == 1 {
+    @return _px-to-relative(nth($values, 1), $em, $base-value);
+  }
+
+  @for $i from 1 through $num {
+    $value: nth($values, $i);
+    // It's 'auto'
+    @if (string == type-of($value)) {
+      $relative-values: append($relative-values, $value);
+    }
+
+    @else if (number == type-of($value)) {
+      $relative-values: append($relative-values, _px-to-relative(nth($values, $i), $em, $base-value));
+    }
+  }
+
+  @return $relative-values;
+}
+
+/**
+ * Convert a list of px values (with or without the 'px' string) to rem
+ *
+ * @param {List}   $values Single value or list of values to convert
+ * @param {Number} $base-value Root font size on which to base conversions
+ */
+@function sassRem($values, $base-value: 16) {
+  @return _px-to-relative-list($values, false, $base-value);
+}
+
+/**
+ * Generate map of breakpoint values
+ */
+@function _create-breakpoints() {
+  $merged: ();
+
+  @each $name, $value in $bp-values {
+    $merged: map_merge($merged, (
+      '#{$name}-min': 'min-width: #{sassRem($value)}',
+      '#{$name}-max': 'max-width: #{sassRem($value - 1)}',
+    ));
+  }
+
+  @return $merged;
+}
+
+/**
+ * If you want, include custom media queries in the first parameter of map_merge below
+ * (example 'admin-bar' media query provided)
+ */
+$media-queries: map_merge((
+  admin-bar: 'min-width: 600px',
+), _create-breakpoints());
+// @debug $media-queries;
+/**
+ * Retrive prepared media query
+ *
+ * @param {string} $query Key to acess in breakpoints object. If you're lookin for one of the generated breakpoints,
+ *                        pass in a string constructed using a key from $bp-values
+ *                        and either 'min' (for `min-width`) or 'max' (for `max-width`), separated by a hyphen.
+ */
+@function media($query) {
+  @return map-get($media-queries, $query);
+}
+
+@mixin breakpoint( $from-breakpoint, $to-breakpoint: false ) {
+  $breakpoint-string: null;
+
+  @if ( false == $to-breakpoint and false != $from-breakpoint ) {
+    $start: map-get( $bp-values, $from-breakpoint );
+    $breakpoint-string: '(min-width: ' + sassRem( $start ) ')';
+  }
+
+  @else if ( false == $from-breakpoint and false != $to-breakpoint  ) {
+    $end: ( map-get( $bp-values, $to-breakpoint ) ) - 1;
+    $breakpoint-string: '(max-width: ' + sassRem( $end ) ')';
+  }
+
+  @else {
+    $start: map-get( $bp-values, $from-breakpoint );
+    $end: ( map-get( $bp-values, $to-breakpoint ) ) - 1;
+    $breakpoint-string: '(min-width: ' + sassRem( $start ) + ')
+      and (max-width: ' + sassRem( $end ) ')';
+  }
+
+  @if ( null != $breakpoint-string ) {
+    @media #{$breakpoint-string} {
+      @content;
+    }
+  }
+
+  @else {
+    @error 'Breakpoint '#{$breakpoint}' does not exist';
+  }
+}
