@@ -25,12 +25,16 @@
 
 .hero-section__header {
   color: $color-white;
-  font-size: rem(60);
+  font-size: rem(40);
   line-height: 1.2;
   max-width: rem(500);
 
   span {
     color: $color-yellow;
+  }
+
+  @include breakpoint(m) {
+    font-size: rem(60);
   }
 }
 

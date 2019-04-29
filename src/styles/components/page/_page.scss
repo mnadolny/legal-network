@@ -2,6 +2,10 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: rem(70);
+
+  @include breakpoint(false, l) {
+    flex-direction: column;
+  }
 }
 
 .box__about-fund {
@@ -10,6 +14,10 @@
 
 .box__timeline {
   flex-basis: 30%;
+
+  @include breakpoint(false, l) {
+    margin-top: rem(50);
+  }
 }
 
 .intro-p {
@@ -19,7 +27,6 @@
 
 .box__full-width {
   background-color: $color-gray-light;
-  margin-bottom: rem(70);
   padding-bottom: rem(70);
   padding-top: rem(70);
   width: 100%;
@@ -29,7 +36,6 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  margin-bottom: rem(40);
   width: 100%;
 
   @supports (display: grid) {
@@ -83,4 +89,34 @@ footer {
   margin-top: rem(70);
   text-align: center;
   padding: rem(70);
+}
+
+.timeline__event {
+  display: block;
+}
+
+.timeline__list {
+  margin-bottom: rem(30);
+
+  li {
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-gray-light;
+      margin-bottom: rem(10);
+      padding-bottom: rem(10);
+    }
+  }
+}
+
+.box__full-width-img {
+  background-attachment: fixed;
+  background-image: url(../images/hero-2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 350px;
+}
+
+.box__bottom {
+  padding-top: rem(70);
 }
