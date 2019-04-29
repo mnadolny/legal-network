@@ -1,0 +1,27 @@
+$container-padding: rem(20);
+$container-width: 1280;
+$spacer-standard: $container-padding;
+$spacer: 15;
+
+@mixin container {
+  margin: 0 auto;
+  max-width: rem($container-width);
+  padding-left: rem($spacer);
+  padding-right: rem($spacer);
+  position: relative;
+  width: 100%;
+
+  @include breakpoint(m) {
+    padding-left: rem(20);
+    padding-right: rem(20);
+  }
+
+  @include breakpoint(l) {
+    padding-left: rem(30);
+    padding-right: rem(30);
+  }
+}
+
+.container {
+  @include container;
+}

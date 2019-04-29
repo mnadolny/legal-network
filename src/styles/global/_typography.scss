@@ -1,0 +1,46 @@
+$font-sans-serif: 'Open Sans', sans-serif;
+$font-serif: 'Merriweather', serif;
+
+
+p,
+ul,
+li,
+a {
+  font-family: $font-sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: $font-serif;
+}
+
+.section-header__large {
+  font-size: rem(30);
+  text-align: center;
+  display: block;
+
+  @include breakpoint(m) {
+    font-size: rem(40);
+  }
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+
+  &:not(:last-child) {
+    margin-bottom: rem(20);
+  }
+}
+
+strong {
+  font-weight: 900;
+}
+
+.header__standard {
+  font-size: rem(22);
+  margin-bottom: rem(10);
+}
+
+li {
+  line-height: 1.4;
+}
