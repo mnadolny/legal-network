@@ -11,12 +11,12 @@ $spacer: 15;
   position: relative;
   width: 100%;
 
-  @media (media(m-min)) {
+  @include breakpoint(m) {
     padding-left: rem(20);
     padding-right: rem(20);
   }
 
-  @media (media(l-min)) {
+  @include breakpoint(l) {
     padding-left: rem(30);
     padding-right: rem(30);
   }
@@ -24,4 +24,65 @@ $spacer: 15;
 
 .container {
   @include container;
+}
+
+// .two-column-thirds {
+//   display: flex;
+//   flex-flow: row wrap;
+//   justify-content: flex-start;
+//   margin-bottom: rem(40);
+//   width: 100%;
+//
+//   @supports (display: grid) {
+//     display: grid;
+//     grid-gap: rem(40);
+//     grid-template-columns: repeat(1, 1fr);
+//
+//     @include breakpoint(m) {
+//       grid-template-columns: repeat(3, 1fr);
+//     }
+//   }
+// }
+
+.grid-container {
+  display: grid;
+  grid-gap: rem(30);
+  grid-template-columns: repeat(4, 1fr);
+
+  @include breakpoint(false, l) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.box__about-fund {
+  grid-column: 1 / 4;
+  grid-row: 1;
+}
+
+.box__half-left {
+  grid-row: 2;
+  grid-column: 1 / 2;
+}
+
+.box__half-right {
+  grid-row: 2;
+  grid-column: 2 / 5;
+}
+
+
+.box__focus {
+  grid-column: 1 / 5;
+}
+
+.box__values {
+  grid-column: 1/ 5;
+}
+
+.box__process {
+  grid-column: 1 / 3;
+}
+
+.box__decisions {
+  grid-column: 3 / 5;
 }
