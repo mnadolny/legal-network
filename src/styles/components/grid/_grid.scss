@@ -1,0 +1,56 @@
+.box__icon {
+  * {
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    height: 85px;
+  }
+}
+
+.box__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.box__icon-collab {
+  background-image: url('../icons/icon-collab.svg');
+  width: 102px;
+}
+
+.box__icon-fund {
+  background-image: url('../icons/icon-fund.svg');
+  width: 118px;
+}
+
+.box__icon-idea {
+  background-image: url('../icons/icon-idea.svg');
+  width: 82px;
+}
+
+.box__icon-protect {
+  background-image: url('../icons/icon-protect.svg');
+  width: 62px;
+}
+
+.box__icon-inclusive {
+  background-image: url('../icons/icon-inclusive.svg');
+  width: 86px;
+}
+
+.box__icon-community {
+  background-image: url('../icons/icon-community.svg');
+  width: 95px;
+}
+
+.box__icon-collab-a {
+  background-image: url('../icons/icon-collab-a.svg');
+  width: 85px;
+}
+
+.box__icon-relationship {
+  background-image: url('../icons/icon-relationship.svg');
+  width: 99px;
+}

@@ -1,0 +1,86 @@
+.intro-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(70);
+}
+
+.box__about-fund {
+  flex-basis: 65%;
+}
+
+.box__timeline {
+  flex-basis: 30%;
+}
+
+.intro-p {
+  font-family: $font-serif;
+  font-size: rem(20);
+}
+
+.box__full-width {
+  background-color: $color-gray-light;
+  margin-bottom: rem(70);
+  padding-bottom: rem(70);
+  padding-top: rem(70);
+  width: 100%;
+}
+
+.box__grid-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin-bottom: rem(40);
+  width: 100%;
+
+  @supports (display: grid) {
+    display: grid;
+    grid-gap: rem(40);
+    grid-template-columns: repeat(1, 1fr);
+
+    @include breakpoint(m) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.item__header {
+  font-family: $font-serif;
+  font-size: rem(22);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.box__focus {
+
+  .box__focus-intro {
+    margin: 0 auto;
+    margin-bottom: rem(50);
+    max-width: rem(700);
+    text-align: center;
+  }
+}
+
+.box__list {
+
+  li {
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-gray-light;
+      margin-bottom: rem(20);
+      padding-bottom: rem(20);
+    }
+  }
+}
+
+footer {
+  background-color: $color-blue;
+  color: $color-white;
+  margin-top: rem(70);
+  text-align: center;
+  padding: rem(70);
+}
