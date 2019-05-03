@@ -89,6 +89,13 @@ footer {
   margin-top: rem(70);
   text-align: center;
   padding: rem(70);
+  font-weight: 700;
+  font-size: 1.25rem;
+  
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
 }
 
 .timeline__event {
