@@ -73,7 +73,7 @@
 
 .box__list {
 
-  li {
+  > li {
 
     &:not(:last-child) {
       border-bottom: 1px solid $color-gray-light;
@@ -119,4 +119,31 @@ footer {
 
 .box__bottom {
   padding-top: rem(70);
+}
+
+.timeline__event {
+  font-weight: bolder;
+}
+
+.logo-grid {
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(1, 200px);
+  grid-gap: 30px;
+  justify-content: space-around;
+  margin-top: rem(50);
+
+  @include breakpoint(m) {
+    grid-template-columns: repeat(3, 150px);
+  }
+
+  @include breakpoint(l) {
+    grid-template-columns: repeat(3, 280px);
+  }
+}
+
+.logo-item {
+  img {
+    width: 100%;
+  }
 }
