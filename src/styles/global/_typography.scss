@@ -44,3 +44,15 @@ strong {
 li {
   line-height: 1.4;
 }
+
+a {
+  color: inherit;
+}
+
+p,
+li {
+
+  a {
+    color: $color-blue;
+  }
+}
