@@ -154,3 +154,18 @@ footer {
     width: 100%;
   }
 }
+
+.icon-download {
+  background-image: url(../icons/icon-download.svg);
+  width: 13px;
+  height: 15px;
+  display: block;
+  margin-right: rem(5);
+}
+
+.download-pdf {
+  align-items: center;
+  display: flex;
+  font-size: 1rem;
+  justify-content: center;
+}

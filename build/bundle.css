@@ -618,6 +618,19 @@ footer {
 .logo-item img {
   width: 100%; }
 
+.icon-download {
+  background-image: url(src/icons/icon-download.svg);
+  width: 13px;
+  height: 15px;
+  display: block;
+  margin-right: 0.3125rem; }
+
+.download-pdf {
+  align-items: center;
+  display: flex;
+  font-size: 1rem;
+  justify-content: center; }
+
 .box__icon * {
   background-origin: content-box;
   background-repeat: no-repeat;
