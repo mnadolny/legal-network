@@ -497,14 +497,17 @@ li a {
 
 .hero-section__header {
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   line-height: 1.2;
   max-width: 31.25rem; }
   .hero-section__header span {
     color: #fc0; }
   @media (min-width: 48rem) {
     .hero-section__header {
-      font-size: 3.75rem; } }
+      font-size: 2.375rem; } }
+  @media (max-width: 47.9375rem) {
+    .hero-section__header {
+      max-width: 15.625rem; } }
 
 .hero-section__logo {
   color: #fff;
