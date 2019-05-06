@@ -488,7 +488,8 @@ li a {
 
 .hero-section__logo {
   position: absolute;
-  top: 20px; }
+  top: 20px;
+  text-transform: uppercase; }
 
 .hero-section__content {
   align-items: center;
@@ -511,8 +512,8 @@ li a {
 
 .hero-section__logo {
   color: #fff;
-  font-size: 1.875rem;
-  letter-spacing: 2.8px; }
+  font-size: 1.375rem;
+  letter-spacing: 2px; }
 
 .intro-wrapper {
   display: flex;
