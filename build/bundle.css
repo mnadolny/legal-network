@@ -467,6 +467,13 @@ strong {
 li {
   line-height: 1.4; }
 
+a {
+  color: inherit; }
+
+p a,
+li a {
+  color: #005288; }
+
 .hero-section {
   background-position: top;
   background-image: url(src/images/hero-5.png);
