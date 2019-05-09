@@ -622,10 +622,10 @@ footer {
   margin-top: 3.125rem; }
   @media (min-width: 48rem) {
     .logo-grid {
-      grid-template-columns: repeat(3, 150px); } }
+      grid-template-columns: repeat(2, 150px); } }
   @media (min-width: 64rem) {
     .logo-grid {
-      grid-template-columns: repeat(3, 280px); } }
+      grid-template-columns: repeat(4, 250px); } }
 
 .logo-item img {
   width: 100%; }
