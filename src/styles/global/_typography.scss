@@ -47,7 +47,10 @@ li {
 
 a {
   color: inherit;
-  word-break: break-all;
+
+  @include breakpoint(false, m) {
+    word-break: break-all;
+  }  
 }
 
 p,

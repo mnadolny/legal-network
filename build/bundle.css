@@ -468,8 +468,10 @@ li {
   line-height: 1.4; }
 
 a {
-  color: inherit;
-  word-break: break-all; }
+  color: inherit; }
+  @media (max-width: 47.9375rem) {
+    a {
+      word-break: break-all; } }
 
 p a,
 li a {
